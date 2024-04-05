@@ -1059,8 +1059,7 @@
                 {
                     "name": "SMTP_FROM",
                     "type": "email",
-                    "label": "Smtp From",
-                    "type": "email"
+                    "label": "Smtp From"
                 },
                 {
                     "name": "SMTP_PORT",
