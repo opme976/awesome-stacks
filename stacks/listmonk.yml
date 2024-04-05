@@ -4,15 +4,19 @@ version: '3.8'
 
 services:
   app:
-    image: listmonk/listmonk:${VERSION:-v2.4.0}
+    image: listmonk/listmonk:${VERSION:-v3.0.0}
     command:
       - /bin/sh
       - -c
       - |
-        # ./listmonk --install --yes  # Uncomment on first deploy
+        if [ "$$INSTALL" = "true" ]; then
+          ./listmonk --install --yes
+        fi
         rm config.toml
         ./listmonk --new-config
-        # ./listmonk --upgrade --yes # Uncomment to upgrade
+        if [ "$$UPGRADE" = "true" ]; then
+          ./listmonk --upgrade --yes
+        fi
         ./listmonk
     environment:
       - LISTMONK_app__admin_username=${ADMIN_USERNAME:-admin}
@@ -24,6 +28,8 @@ services:
       - POSTGRES_USER=listmonk
       - POSTGRES_PASSWORD=myp@ssw0rd
       - DB_HOST=postgres
+      - INSTALL=${INSTALL:-false}
+      - UPGRADE=${UPGRADE:-false}
     deploy:
       labels:
         - traefik.enable=true

@@ -407,6 +407,39 @@
                     "name": "SMTP_PORT",
                     "label": "Smtp Port",
                     "type": "number"
+                },
+                {
+                    "name": "SMTP_FROM",
+                    "label": "Smtp From",
+                    "type": "email"
+                },
+                {
+                    "name": "SMTP_AUTH",
+                    "label": "SMTP authentication method",
+                    "type": "select",
+                    "select": [
+                        {
+                            "text": "login",
+                            "value": "login"
+                        },
+                        {
+                            "text": "plain",
+                            "value": "plain"
+                        }
+                    ]
+                },
+                {
+                    "name": "GITLAB_APP_ID",
+                    "label": "Gitlab App ID"
+                },
+                {
+                    "name": "GITLAB_SECRET",
+                    "label": "Gitlab Secret",
+                    "type": "password"
+                },
+                {
+                    "name": "GITLAB_URL",
+                    "label": "Gitlab URL"
                 }
             ]
         },
@@ -415,8 +448,7 @@
             "title": "Dolibarr",
             "description": "Dolibarr ERP & CRM est un progiciel web moderne et facile à utiliser pour la gestion de votre entreprise.",
             "categories": ["ERP"],
-            "manual": true,
-            "enabled": false,
+            "enabled": true,
             "trial": 7,
             "price": 19,
             "logo": "https://i.imgur.com/ayV1kB4.png",
@@ -424,7 +456,22 @@
             "repository": {
                 "url": "https://github.com/ethibox/awesome-stacks",
                 "stackfile": "stacks/dolibarr.yml"
-            }
+            },
+            "env": [
+                {
+                    "name": "ADMIN_USERNAME",
+                    "label": "Admin username",
+                    "value": "admin",
+                    "disabled": true
+                },
+                {
+                    "name": "INITIAL_ADMIN_PASSWORD",
+                    "label": "Initial admin password",
+                    "type": "password",
+                    "value": "dolibarr",
+                    "disabled": true
+                }
+            ]
         },
         {
             "type": 2,
@@ -695,7 +742,24 @@
             "repository": {
                 "url": "https://github.com/ethibox/awesome-stacks",
                 "stackfile": "stacks/mattermost.yml"
-            }
+            },
+            "env": [
+                {
+                    "name": "LOCALE",
+                    "label": "Language",
+                    "type": "select",
+                    "select": [
+                        {
+                            "text": "Fr",
+                            "value": "fr"
+                        },
+                        {
+                            "text": "En",
+                            "value": "en"
+                        }
+                    ]
+                }
+            ]
         },
         {
             "type": 2,
@@ -1569,6 +1633,7 @@
             "title": "n8n",
             "description": "Alternative open-source à Zapier",
             "categories": ["Automatisation"],
+            "manual": true,
             "enabled": true,
             "trial": 7,
             "price": 19,
@@ -1607,7 +1672,7 @@
                 {
                     "name": "SMTP_PORT",
                     "label": "SMTP Port",
-                    "value": 587,
+                    "value": "587",
                     "type": "number"
                 },
                 {
@@ -1758,6 +1823,127 @@
                     "name": "ADMIN_USERNAME",
                     "label": "Admin username",
                     "value": "admin",
+                    "disabled": true
+                },
+                {
+                    "name": "ADMIN_PASSWORD",
+                    "label": "Admin password",
+                    "type": "password",
+                    "disabled": true
+                }
+            ]
+        },
+        {
+            "type": 2,
+            "title": "Nocobase",
+            "description": "Plateforme no-code open-source",
+            "categories": ["Low-code"],
+            "enabled": true,
+            "trial": 7,
+            "price": 19,
+            "logo": "https://i.imgur.com/S1zp24t.png",
+            "website": "https://www.nocobase.com/",
+            "repository": {
+                "url": "https://github.com/ethibox/awesome-stacks",
+                "stackfile": "stacks/nocobase.yml"
+            },
+            "env": [
+                {
+                    "name": "ADMIN_EMAIL",
+                    "type": "email",
+                    "label": "Admin email",
+                    "disabled": true
+                },
+                {
+                    "name": "ADMIN_PASSWORD",
+                    "label": "Admin password",
+                    "type": "password",
+                    "disabled": true
+                }
+            ]
+        },
+        {
+            "type": 2,
+            "title": "Bookstack",
+            "description": "Application de gestion des connaissances open source",
+            "categories": ["Connaissances"],
+            "enabled": true,
+            "trial": 7,
+            "price": 19,
+            "logo": "https://i.imgur.com/JJ4LnUD.png",
+            "website": "https://bookstackapp.com/",
+            "repository": {
+                "url": "https://github.com/ethibox/awesome-stacks",
+                "stackfile": "stacks/bookstack.yml"
+            },
+            "env": [
+                {
+                    "name": "INITIAL_ADMIN_EMAIL",
+                    "label": "Initial admin email",
+                    "type": "email",
+                    "value": "admin@admin.com",
+                    "disabled": true
+                },
+                {
+                    "name": "INITIAL_ADMIN_PASSWORD",
+                    "label": "Initial admin password",
+                    "type": "password",
+                    "value": "password",
+                    "disabled": true
+                }
+            ]
+        },
+        {
+            "type": 2,
+            "title": "GoGoCarto",
+            "description": "Application pour créer des cartes collaboratives",
+            "categories": ["Carte"],
+            "manual": true,
+            "enabled": true,
+            "trial": 7,
+            "price": 19,
+            "logo": "https://i.imgur.com/pWgJd6Q.png",
+            "website": "https://gitlab.com/Seballot/gogocarto",
+            "repository": {
+                "url": "https://github.com/ethibox/awesome-stacks",
+                "stackfile": "stacks/gogocarto.yml"
+            }
+        },
+        {
+            "type": 2,
+            "title": "Appsmith",
+            "description": "Appsmith est un outil Nocode open-source pour créer des applications web et des tableaux de bord.",
+            "categories": ["Low-code"],
+            "enabled": true,
+            "trial": 7,
+            "price": 19,
+            "logo": "https://i.imgur.com/BAY6klX.png",
+            "website": "https://appsmith.com/",
+            "repository": {
+                "url": "https://github.com/ethibox/awesome-stacks",
+                "stackfile": "stacks/appsmith.yml"
+            }
+        },
+        {
+            "type": 2,
+            "title": "Dokos",
+            "description": "Plateforme de gestion d'entreprise open-source",
+            "categories": ["ERP"],
+            "manual": true,
+            "enabled": true,
+            "trial": 7,
+            "price": 19,
+            "logo": "https://i.imgur.com/wxofSzi.png",
+            "website": "https://dokos.io/",
+            "repository": {
+                "url": "https://github.com/ethibox/awesome-stacks",
+                "stackfile": "stacks/dokos.yml"
+            },
+            "env": [
+                {
+                    "name": "ADMIN_USERNAME",
+                    "label": "Admin username",
+                    "value": "Administrator",
                     "disabled": true
                 },
                 {
